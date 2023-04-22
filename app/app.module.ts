@@ -8,6 +8,9 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { BoardComponent } from './board/board.component';
 import { ListComponent } from './list/list.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { AddTaskFormComponent } from './add-task-form/add-task-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { CalendarComponent } from './calendar/calendar.component';
     HomePageComponent,
     BoardComponent,
     ListComponent,
-    CalendarComponent
+    CalendarComponent,
+    AddTaskFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

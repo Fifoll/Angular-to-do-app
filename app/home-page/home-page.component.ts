@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskService } from '../shared/services/task.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  tasks: any = [];
+  loading: boolean = false;
+
+
+  constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
+    this.getTaskData();
+  }
+
+
+  getTaskData(): void {
+    this.loading = true;
+    this.taskService.getAllTasks()
+    .subscribe({
+      next: value => this.tasks = value,
+      complete: () => this.loading = false
+    });
   }
 
 }

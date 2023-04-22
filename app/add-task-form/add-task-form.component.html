@@ -1,0 +1,20 @@
+<br><br>
+<p>Add new task:</p>
+
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <label for="name">Name: </label>
+  <input id="name" type="text" formControlName="name" required>
+  <br/><br/>
+  <label for="description">Description: </label>
+  <input id="description" formControlName="description" required>
+  <br/><br/>
+  <label for="date">Due date: </label>
+  <input id="date" type="date" formControlName="dueDate" required>
+  <br/><br/>
+  <!-- <label for="status">Status: </label>
+  <select id="status" formControlName="status" required>
+    <option *ngFor="let status of taskStatus" [ngValue]="status.value">{{ status.name }}</option>
+  </select>
+  <br/><br/> -->
+  <button class="btn btn-success" [disabled]="!taskForm.valid">send</button>
+</form>
